@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+<body ng-app ng-init="s=[{ usn: '1OX21CS000', name: 'S', cgpa: 8.5 }]">
+<h2>Student Details</h2>
+<input ng-model="ns.usn" placeholder="USN">
+<input ng-model="ns.name" placeholder="Name">
+<input type="number" ng-model="ns.cgpa" placeholder="CGPA">
+<button ng-click="s.push(ns); ns={}">Add</button>
+<table border="1">
+<tr>
+<th>USN</th>
+<th>Name</th>
+<th>CGPA</th>
+</tr>
+<tr ng-repeat="st in s | orderBy:'usn'">
+<td>{{ st.usn }}</td>
+<td>{{ st.name }}</td>
+<td>{{ st.cgpa }}</td>
+</tr>
+</table>
+<p>Total students: {{ s.length }}</p>
+</body>
+</html>
